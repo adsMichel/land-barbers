@@ -105,7 +105,6 @@
                                     <td class="align-middle">{{ \Carbon\Carbon::parse($item->created_at)->tz('America/Sao_Paulo')->format('d/m/Y') }}</td>
                                     <td class="align-middle">
                                         <div class="btn-group">
-                                            <a href="{{ route('ordemservico.createclient', $item->id) }}" data-toggle="tooltip" title="Criar Ordem de Serviço"><button class="btn-sm btn-primary mr-1"><i class="fas fa-briefcase"></i></button></a>
                                             <a href="{{ route('client.edit', $item->id) }}" data-toggle="tooltip" title="Editar Cliente"><button class="btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></button></a>
                                             <form action="{{ route('client.destroy', $item->id) }}" method="POST" style="display: inline">
                                                 @method('DELETE')

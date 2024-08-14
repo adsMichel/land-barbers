@@ -3,7 +3,7 @@
 namespace Modules\Client\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Validation\Rule;
 
 class ClientStoreRequest extends FormRequest
 {
