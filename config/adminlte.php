@@ -316,11 +316,11 @@ return [
                 ],
                 [
                     'text' => 'Unhas',
-                    'url' => 'product.index',
+                    'url' => '#',
                 ],
                 [
                     'text' => 'Pele',
-                    'url' => 'product.index',
+                    'url' => '#',
                 ],
             ],
         ],
