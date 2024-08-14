@@ -302,35 +302,7 @@
             <div class="col-sm-3">
                 <label for="uf">Estado</label>
                 <div class="form-group">
-                    <select name="uf" id="uf" class="form-control select2 @error('uf') is-invalid @enderror">
-                        <option @if (isset($data) && $data->uf == 'Minas Gerais') selected="selected" @endif value="Minas Gerais" {{ old('uf') == 'Minas Gerais' ? 'selected' : ''}}>Minas Gerais</option>
-                        <option @if (isset($data) && $data->uf == 'Acre') selected="selected" @endif value="Acre" {{ old('uf') == 'Acre' ? 'selected' : ''}}>Acre</option>
-                        <option @if (isset($data) && $data->uf == 'Alagoas') selected="selected" @endif value="Alagoas" {{ old('uf') == 'Alagoas' ? 'selected' : ''}}>Alagoas</option>
-                        <option @if (isset($data) && $data->uf == 'Amapá') selected="selected" @endif value="Amapá" {{ old('uf') == 'Amapá' ? 'selected' : ''}}>Amapá</option>
-                        <option @if (isset($data) && $data->uf == 'Amazonas') selected="selected" @endif value="Amazonas" {{ old('uf') == 'Amazonas' ? 'selected' : ''}}>Amazonas</option>
-                        <option @if (isset($data) && $data->uf == 'Bahia') selected="selected" @endif value="Bahia" {{ old('uf') == 'Bahia' ? 'selected' : ''}}>Bahia</option>
-                        <option @if (isset($data) && $data->uf == 'Ceará') selected="selected" @endif value="Ceará" {{ old('uf') == 'Ceará' ? 'selected' : ''}}>Ceará</option>
-                        <option @if (isset($data) && $data->uf == 'Distrito Federal') selected="selected" @endif value="Distrito Federal" {{ old('uf') == 'Distrito Federal' ? 'selected' : ''}}>Distrito Federal</option>
-                        <option @if (isset($data) && $data->uf == 'Espírito Santo') selected="selected" @endif value="Espírito Santo" {{ old('uf') == 'Espírito Santo' ? 'selected' : ''}}>Espírito Santo</option>
-                        <option @if (isset($data) && $data->uf == 'Goiás') selected="selected" @endif value="Goiás" {{ old('uf') == 'Goiás' ? 'selected' : ''}}>Goiás</option>
-                        <option @if (isset($data) && $data->uf == 'Maranhão') selected="selected" @endif value="Maranhão" {{ old('uf') == 'Maranhão' ? 'selected' : ''}}>Maranhão</option>
-                        <option @if (isset($data) && $data->uf == 'Mato Grosso') selected="selected" @endif value="Mato Grosso" {{ old('uf') == 'Mato Grosso' ? 'selected' : ''}}>Mato Grosso</option>
-                        <option @if (isset($data) && $data->uf == 'Mato Grosso do Sul') selected="selected" @endif value="Mato Grosso do Sul" {{ old('uf') == 'Mato Grosso do Sul' ? 'selected' : ''}}>Mato Grosso do Sul</option>
-                        <option @if (isset($data) && $data->uf == 'Pará') selected="selected" @endif value="Pará" {{ old('uf') == 'Pará' ? 'selected' : ''}}>Pará</option>
-                        <option @if (isset($data) && $data->uf == 'Paraíba') selected="selected" @endif value="Paraíba" {{ old('uf') == 'Paraíba' ? 'selected' : ''}}>Paraíba</option>
-                        <option @if (isset($data) && $data->uf == 'Paraná') selected="selected" @endif value="Paraná" {{ old('uf') == 'Paraná' ? 'selected' : ''}}>Paraná</option>
-                        <option @if (isset($data) && $data->uf == 'Pernambuco') selected="selected" @endif value="Pernambuco" {{ old('uf') == 'Pernambuco' ? 'selected' : ''}}>Pernambuco</option>
-                        <option @if (isset($data) && $data->uf == 'Piauí') selected="selected" @endif value="Piauí" {{ old('uf') == 'Piauí' ? 'selected' : ''}}>Piauí</option>
-                        <option @if (isset($data) && $data->uf == 'Rio de Janeiro') selected="selected" @endif value="Rio de Janeiro" {{ old('uf') == 'Rio de Janeiro' ? 'selected' : ''}}>Rio de Janeiro</option>
-                        <option @if (isset($data) && $data->uf == 'Rio Grande do Norte') selected="selected" @endif value="Rio Grande do Norte" {{ old('uf') == 'Rio Grande do Norte' ? 'selected' : ''}}>Rio Grande do Norte</option>
-                        <option @if (isset($data) && $data->uf == 'Rio Grande do Sul') selected="selected" @endif value="Rio Grande do Sul" {{ old('uf') == 'Rio Grande do Sul' ? 'selected' : ''}}>Rio Grande do Sul</option>
-                        <option @if (isset($data) && $data->uf == 'Rondônia') selected="selected" @endif value="Rondônia" {{ old('uf') == 'Rondônia' ? 'selected' : ''}}>Rondônia</option>
-                        <option @if (isset($data) && $data->uf == 'Roraima') selected="selected" @endif value="Roraima" {{ old('uf') == 'Roraima' ? 'selected' : ''}}>Roraima</option>
-                        <option @if (isset($data) && $data->uf == 'Santa Catarina') selected="selected" @endif value="Santa Catarina" {{ old('uf') == 'Santa Catarina' ? 'selected' : ''}}>Santa Catarina</option>
-                        <option @if (isset($data) && $data->uf == 'São Paulo') selected="selected" @endif value="São Paulo" {{ old('uf') == 'São Paulo' ? 'selected' : ''}}>São Paulo</option>
-                        <option @if (isset($data) && $data->uf == 'Sergipe') selected="selected" @endif value="Sergipe" {{ old('uf') == 'Sergipe' ? 'selected' : ''}}>Sergipe</option>
-                        <option @if (isset($data) && $data->uf == 'Tocantins') selected="selected" @endif value="Tocantins" {{ old('uf') == 'Tocantins' ? 'selected' : ''}}>Tocantins</option>
-                    </select>
+                    <input id="uf" type="text" class="form-control @error('uf') is-invalid @enderror" name="uf" value="{{ old('uf', $data->uf ?? 'Belo Horizonte') }}" autocomplete="uf" autofocus>
                     @error('uf')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
