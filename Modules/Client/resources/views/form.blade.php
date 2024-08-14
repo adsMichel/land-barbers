@@ -291,7 +291,7 @@
             <div class="col-sm-3">
                 <label for="cidade">Cidade</label>
                 <div class="form-group">
-                    <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade', $data->cidade ?? 'Belo Horizonte') }}" autocomplete="cidade" autofocus>
+                    <input id="cidade" type="text" class="form-control @error('cidade') is-invalid @enderror" name="cidade" value="{{ old('cidade', $data->cidade ?? '') }}" autocomplete="cidade" autofocus>
                     @error('cidade')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -302,7 +302,7 @@
             <div class="col-sm-3">
                 <label for="uf">Estado</label>
                 <div class="form-group">
-                    <input id="uf" type="text" class="form-control @error('uf') is-invalid @enderror" name="uf" value="{{ old('uf', $data->uf ?? 'Belo Horizonte') }}" autocomplete="uf" autofocus>
+                    <input id="uf" type="text" class="form-control @error('uf') is-invalid @enderror" name="uf" value="{{ old('uf', $data->uf ?? '') }}" autocomplete="uf" autofocus>
                     @error('uf')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
