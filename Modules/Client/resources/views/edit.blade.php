@@ -1,21 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Cadastro de Cliente')
+@section('title', 'Editar Cliente')
 
 @section('content_header')
-<div class="container-fluid">
-    <div class="row mb-2">
-        <div class="col-sm-6">
-            <h1><strong>Cadastro de Cliente</strong></h1>
-        </div>
-        <div class="col-sm-6">
-        </div>
-    </div>
-</div>
 @endsection
+
 @section('content')
 <div class="card p-3">
-    <form action="{{route('client.store')}}" method="post">
+    <div class="card-header card-theme">
+        <h3 class="card-title">Editar Cliente</h3>
+    </div>
+    <form class="form-horizontal" action="{{ route('client.update', $id) }}" method="POST">
+        @method('PUT')
         @include('client::form')
     </form>
 </div>
@@ -33,6 +29,9 @@
     #form-cnpj,
     #form-razaoSocial,
     #form-iEstadual,
+    #form-tipoContribuinte,
+    #form-iMunicipal,
+    #form-iSuframa,
     #form-empresaResponsavel {
         display: none;
     }
@@ -70,11 +69,8 @@
                 $('#form-empresaResponsavel').hide();
             }
         })
-        // Quando faltar algum dado required, ele voltar com o select na opção que estava e trazer os campos ocultos
         var valor = $('#tipo').val();
-        if (valor == "") {
-            $('#tipo').val('').change();
-        } else if (valor == "Pessoa Física") {
+        if (valor == "Pessoa Física") {
             $('#tipo').val('Pessoa Física').change();
         } else {
             $('#tipo').val('Pessoa Jurídica').change();

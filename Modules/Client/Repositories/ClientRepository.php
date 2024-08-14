@@ -54,4 +54,41 @@ class ClientRepository
         }
         return false;
     }
+
+    public function find($id)
+    {
+        return self::model()->find($id);
+    }
+
+    public function update($id, array $data)
+    {
+        if (isset($data['whatsapp'])) {
+            $data['whatsapp'] = true;
+        }
+
+        if (!isset($data['whatsapp'])) {
+            $data['whatsapp'] = false;
+        }
+
+        if (isset($data['isentoEstadual'])) {
+            $data['isentoEstadual'] = true;
+        }
+
+        if (!isset($data['isentoEstadual'])) {
+            $data['isentoEstadual'] = false;
+        }
+
+        if (self::model()->find($id)->update($data)) {
+            return true;
+        }
+        return false;
+    }
+
+    public function destroy($id)
+    {
+        if (self::model()->find($id)->delete()) {
+            return true;
+        }
+        return false;
+    }
 }

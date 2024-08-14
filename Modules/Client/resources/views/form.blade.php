@@ -13,8 +13,7 @@
                         <option value="" @if (isset($data) || !isset($data)) selected="selected" @endif> Selecione</option>
                         <option @if (isset($data) && $data->tipo == 'Pessoa Física') selected="selected" @endif value="Pessoa Física" {{ old('tipo') == 'Pessoa Física' ? 'selected' : ''}}>Pessoa Física</option>
                         <option @if (isset($data) && $data->tipo == 'Pessoa Jurídica') selected="selected" @endif value="Pessoa Jurídica" {{ old('tipo') == 'Pessoa Jurídica' ? 'selected' : ''}}>Pessoa Jurídica</option>
-                        <!-- <option @if (isset($data) && $data->tipo == 'Estrangeiro') selected="selected" @endif value="Estrangeiro" {{ old('tipo') == 'Estrangeiro' ? 'selected' : ''}}>Estrangeiro</option> -->
-                    </select>
+                        </select>
                     @error('tipo')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -26,7 +25,6 @@
                 <label for="status">Situação</label>
                 <div class="form-group">
                     <select name="status" id="status" class="form-control select2 @error('status') is-invalid @enderror">
-                        <!-- <option value="" disabled="disabled" @if (isset($data) || !isset($data)) selected="selected" @endif> Selecione</option> -->
                         <option @if (isset($data) && $data->status == 'Ativo') selected="selected" @endif value="Ativo" {{ old('status') == 'Ativo' ? 'selected' : ''}}>Ativo</option>
                         <option @if (isset($data) && $data->status == 'Inativo') selected="selected" @endif value="Inativo" {{ old('status') == 'Inativo' ? 'selected' : ''}}>Inativo</option>
                         <option @if (isset($data) && $data->status == 'Pendente') selected="selected" @endif value="Pendente" {{ old('status') == 'Pendente' ? 'selected' : ''}}>Pendente</option>
@@ -98,7 +96,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-sm-3" id="form-cnpj">
+            <div class="col-sm-4" id="form-cnpj">
                 <label for="cnpj">CNPJ</label>
                 <div class="form-group">
                     <input id="cnpj" type="text" class="form-control @error('cnpj') is-invalid @enderror" name="cnpj" value="{{ old('cnpj', $data->cnpj ?? '') }}" autocomplete="cnpj" autofocus>
@@ -109,7 +107,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-sm-3" id="form-razaoSocial">
+            <div class="col-sm-4" id="form-razaoSocial">
                 <label for="razaoSocial">Razão Social</label>
                 <div class="form-group">
                     <input id="razaoSocial" type="text" class="form-control @error('razaoSocial') is-invalid @enderror" name="razaoSocial" value="{{ old('razaoSocial', $data->razaoSocial ?? '') }}" autocomplete="razaoSocial" autofocus>
@@ -120,7 +118,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-sm-3" id="form-iEstadual">
+            <div class="col-sm-4" id="form-iEstadual">
                 <label for="iEstadual">Inscrição Estadual</label>
                 <div class="form-group">
                     <div class="input-group">
@@ -138,39 +136,6 @@
                         </span>
                         @enderror
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-3" id="form-tipoContribuinte">
-                <label for="tipoContribuinte">Tipo de contribuinte</label>
-                <div class="form-group">
-                    <input id="tipoContribuinte" type="text" class="form-control @error('tipoContribuinte') is-invalid @enderror" name="tipoContribuinte" value="{{ old('tipoContribuinte', $data->tipoContribuinte ?? '') }}" autocomplete="tipoContribuinte" autofocus>
-                    @error('tipoContribuinte')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-sm-4" id="form-iMunicipal">
-                <label for="iMunicipal">Inscrição Municipal</label>
-                <div class="form-group">
-                    <input id="iMunicipal" type="text" class="form-control @error('iMunicipal') is-invalid @enderror" name="iMunicipal" value="{{ old('iMunicipal', $data->iMunicipal ?? '') }}" autocomplete="iMunicipal" autofocus>
-                    @error('iMunicipal')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-            <div class="col-sm-4" id="form-iSuframa">
-                <label for="iSuframa">Inscrição SUFRAMA</label>
-                <div class="form-group">
-                    <input id="iSuframa" type="text" class="form-control @error('iSuframa') is-invalid @enderror" name="iSuframa" value="{{ old('iSuframa', $data->iSuframa ?? '') }}" autocomplete="iSuframa" autofocus>
-                    @error('iSuframa')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
                 </div>
             </div>
             <div class="col-sm-4" id="form-empresaResponsavel">

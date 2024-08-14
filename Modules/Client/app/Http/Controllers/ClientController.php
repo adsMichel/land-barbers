@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Modules\Client\Http\Requests\ClientStoreRequest;
+use Modules\Client\Http\Requests\ClientUpdateRequest;
 use Modules\Client\Repositories\ClientRepository;
 
 class ClientController extends Controller
@@ -41,6 +42,38 @@ class ClientController extends Controller
             Alert::success('Sucesso', 'Cliente criado com sucesso');
         } */
 
+        return redirect()->route('client.index');
+    }
+
+    public function edit($id)
+    {
+        $data = (new ClientRepository())->find($id);
+        return view('client::edit', compact('data', 'id'));
+    }
+
+    public function update(ClientUpdateRequest $request, $id)
+    {
+        $data = (new ClientRepository())->update($id, $request->all());
+        /* if ($data) {
+            Alert::success('Sucesso', 'Cliente alterado com sucesso');
+        } */
+        return redirect()->route('client.index');
+    }
+
+    public function show()
+    {
+        return view('client::show');
+    }
+
+    public function destroy($id)
+    {
+        $data = (new ClientRepository())->destroy($id);
+        /* if ($data) {
+            Alert::success('Cliente excluido com sucesso!');
+            return redirect()->route('client.index');
+        }
+
+        Alert::error('Erro ao excluir o cliente'); */
         return redirect()->route('client.index');
     }
 }
