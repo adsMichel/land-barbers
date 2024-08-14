@@ -303,7 +303,7 @@ return [
         ],
         [
             'text' => 'Serviços',
-            'url' => 'admin/settings',
+            'url' => '#',
             'icon' => 'fas fa-fw fa-suitcase',
         ],
         [
@@ -312,35 +312,15 @@ return [
             'submenu' => [
                 [
                     'text' => 'Cabelos',
-                    'url' => '#',
+                    'route' => 'product.index',
                 ],
                 [
                     'text' => 'Unhas',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'level_two',
-                            'url' => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url' => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'url' => 'product.index',
                 ],
                 [
                     'text' => 'Pele',
-                    'url' => '#',
+                    'url' => 'product.index',
                 ],
             ],
         ],
