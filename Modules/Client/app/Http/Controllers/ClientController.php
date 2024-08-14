@@ -6,15 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Modules\Client\Repositories\ClientRepository;
 
 class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    /* public function index()
     {
         return view('client::index');
+    } */
+
+    public function index(Request $request)
+    {
+        $data = (new ClientRepository())->getAllPaginate($request->all());
+        return view('client::index', compact('data'));
     }
 
     /**
@@ -25,43 +32,14 @@ class ClientController extends Controller
         return view('client::create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
+    public function store(ClientStoreRequest $clientStoreRequest)
     {
-        //
-    }
+        $store = (new ClientRepository())->Store($clientStoreRequest->all());
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('client::show');
-    }
+        /* if ($store) {
+            Alert::success('Sucesso', 'Cliente criado com sucesso');
+        } */
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('client::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('client.index');
     }
 }

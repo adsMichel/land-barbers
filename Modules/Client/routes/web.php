@@ -16,4 +16,5 @@ use Modules\Client\Http\Controllers\ClientController;
 
 Route::group([], function () {
     Route::resource('client', ClientController::class)->names('client');
+    Route::get('create', [ClientController::class, 'create'])->name('client.create');
 });
