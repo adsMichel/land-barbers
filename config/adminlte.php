@@ -324,8 +324,8 @@ return [
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url' => 'admin/settings',
+            'text' => 'Clientes',
+            'route' => 'client.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
