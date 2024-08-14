@@ -3,9 +3,7 @@
 namespace Modules\Client\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Modules\Client\Http\Requests\ClientStoreRequest;
 use Modules\Client\Http\Requests\ClientUpdateRequest;
 use Modules\Client\Repositories\ClientRepository;
